@@ -88,6 +88,18 @@ tmpCheck[tmpCheck].index
 ```
 
 
+## List comprehension to get values from a certain key-pair in a list of dicts
+```py
+#Rather than gettng each 'status' with a for-loop like this:
+values = [studyDict['sites'][siteIdx]['subjects'][subjectIdx]['visits'][visitIdx]['itemGroups'][0]['status']] #first
+values = [studyDict['sites'][siteIdx]['subjects'][subjectIdx]['visits'][visitIdx]['itemGroups'][1]['status']] #second
+values = [studyDict['sites'][siteIdx]['subjects'][subjectIdx]['visits'][visitIdx]['itemGroups'][2]['status']] #third
+
+#Use list comprehension:
+values = [i['status'] for i in studyDict['sites'][siteIdx]['subjects'][subjectIdx]['visits'][visitIdx]['itemGroups']]
+```
+
+
 ## Date time stuff
 ```py
 toCheck_visitStart = datetime.strptime(toCheck_visitStart, '%Y.%m.%d %H:%M:%S') + timedelta(0,1) #i.e. Visit Start + 1 sec
