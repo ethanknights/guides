@@ -80,6 +80,19 @@ df_RPS = df_RPS['Visit Start (GMT)'].str.replace(r' UTC','')
 np.where(idx)
 ```
 
+## Drop rows from a dataframe - df.drop()
+### A) Multiple conditions
+```py
+# Drop subjects with no visits yet
+df.drop(df[(df['site'] == 'NaN') & (df['subject'] == 'NaN')].index, inplace=True)
+```
+### B) For-loop with a changing-value in the condiiton
+```py
+# Drop subjects from every siteToIgnore
+for siteToIgnore in sitesToIgnore:
+    df = df.drop(df[df['site'] == siteToIgnore].index)
+```
+
 
 ## find pd idx
 ```py
