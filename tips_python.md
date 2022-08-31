@@ -64,6 +64,7 @@ df_audit['Field'].unique().tolist
 ```py
 df['name'].value_counts()
 ```
+
 ## List, Count and store unique row values in new df column 
 ### (e.g. df['col'] = [wk4, wk4] into df['col'] = w4_visit-1, wk4_visit-2)
 ```py 
