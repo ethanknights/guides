@@ -60,6 +60,18 @@ df.columns.tolist()
 df_audit['Field'].unique().tolist
 ```
 
+## List & Count unique row values
+```py
+df['name'].value_counts()
+```
+## List, Count and store unique row values in new df column 
+### (e.g. df['col'] = [wk4, wk4] into df['col'] = w4_visit-1, wk4_visit-2)
+```py 
+    df['fullVisitName'] = df.groupby('checkin').cumcount().add(1)
+    df['fullVisitName'] = df['fullVisitName'].astype(str)
+    df['fullVisitName'] = df['checkin'] + '_Visit-' + df['fullVisitName']
+    headers = df['fullVisitName']
+```
 
 ## Index a dataframe
 ```py
